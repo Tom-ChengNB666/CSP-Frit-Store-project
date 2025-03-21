@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class WarehouseRestockingGame {
+public class WarehouseRestockingGame_20250321141341 {
 
     // Variables to keep track of clicked items
     private static int clickedBananas = 0;
@@ -33,8 +33,8 @@ public class WarehouseRestockingGame {
 
         // Load the images
         
-        ImageIcon bananaIcon = new ImageIcon("banana1.jpg"); 
-        ImageIcon appleIcon = new ImageIcon("apple1.jpg"); 
+        ImageIcon bananaIcon = new ImageIcon("banana.jpg"); 
+        ImageIcon appleIcon = new ImageIcon("apple.jpg");   // Path to apple.jpg (update with correct path if necessary)
 
         // Create buttons for Banana and Apple images
         JButton bananaButton = new JButton(bananaIcon);

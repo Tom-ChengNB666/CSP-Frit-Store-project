@@ -33,8 +33,8 @@ public class WarehouseRestockingGame {
 
         // Load the images
         
-        ImageIcon bananaIcon = new ImageIcon("banana1.jpg"); 
-        ImageIcon appleIcon = new ImageIcon("apple1.jpg"); 
+        ImageIcon bananaIcon = new ImageIcon("banana.jpg"); 
+        ImageIcon appleIcon = new ImageIcon("apple.jpg"); 
 
         // Create buttons for Banana and Apple images
         JButton bananaButton = new JButton(bananaIcon);
