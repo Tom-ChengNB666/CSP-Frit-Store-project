@@ -32,7 +32,7 @@ public class WarehouseRestockingGame {
         frame.add(orderLabel);
 
         // Load the images
-        
+        S'r't
         ImageIcon bananaIcon = new ImageIcon("banana.jpg"); // Path to banana.jpg (update with correct path if necessary)
         ImageIcon appleIcon = new ImageIcon("apple.jpg");   // Path to apple.jpg (update with correct path if necessary)
 

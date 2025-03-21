@@ -32,8 +32,8 @@ public class WarehouseRestockingGame {
         frame.add(orderLabel);
 
         // Load the images
-        
-        ImageIcon bananaIcon = new ImageIcon("banana.jpg"); // Path to banana.jpg (update with correct path if necessary)
+        String temp="banana.jpg";
+        ImageIcon bananaIcon = new ImageIcon(temp); // Path to banana.jpg (update with correct path if necessary)
         ImageIcon appleIcon = new ImageIcon("apple.jpg");   // Path to apple.jpg (update with correct path if necessary)
 
         // Create buttons for Banana and Apple images
