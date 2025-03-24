@@ -34,7 +34,7 @@ public class WarehouseRestockingGame {
         // Load the images
         
         ImageIcon bananaIcon = new ImageIcon("banana.jpg"); 
-        ImageIcon appleIcon = new ImageIcon("RedApple.png"); 
+        ImageIcon appleIcon = new ImageIcon("RedApple.pnh"); 
 
         // Create buttons for Banana and Apple images
         JButton bananaButton = new JButton(bananaIcon);
