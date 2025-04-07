@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class WarehouseRestockingGame {
 
+    // Variables to keep track of clicked items
     private static int clickedBananas = 0;
     private static int clickedApples = 0;
 

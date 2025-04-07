@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class WarehouseRestockingGame {
 
+    // Variables to keep track of clicked items
     private static int clickedBananas = 0;
     private static int clickedApples = 0;
 
@@ -78,6 +79,7 @@ public class WarehouseRestockingGame {
             JOptionPane.showMessageDialog(null, "You have not selected enough items! Try again.");
         }
 
+        // Reset the counters for bananas and apples after submission
         clickedBananas = 0;
         clickedApples = 0;
     }
