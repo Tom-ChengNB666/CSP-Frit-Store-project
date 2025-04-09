@@ -19,7 +19,7 @@ public class WarehouseRestockingGame {
         frame.setSize(600, 400);
         frame.setLayout(new FlowLayout());
 
-        frame.getContentPane().setBackground(new Color(173, 216, 230));
+        frame.getContentPane().setBackground(new Color(173, 216, 230));  // Light blue background
 
         JLabel requirementLabel = new JLabel("Required: " + requiredBananas + " Bananas and " + requiredApples + " Apples");
         requirementLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -67,14 +67,15 @@ public class WarehouseRestockingGame {
         frame.setVisible(true);
     }
 
+    // 🔄 更新用户当前点击了多少水果
     private static void updateOrderInfo(JLabel selectionLabel) {
         selectionLabel.setText("You have selected: " + clickedBananas + " Bananas and " + clickedApples + " Apples");
     }
 
     private static void submitOrder(JLabel requirementLabel, JLabel selectionLabel) {
-        int[] selected = {clickedBananas, clickedApples};  // ✅ 参数列表
-        if (validateOrderWithList(selected)) {
+        if (validateOrder()) {
             JOptionPane.showMessageDialog(null, "Order successfully submitted!");
+    
             generateRandomRequirements();
             requirementLabel.setText("Required: " + requiredBananas + " Bananas and " + requiredApples + " Apples");
         } else {
@@ -83,26 +84,28 @@ public class WarehouseRestockingGame {
 
         clickedBananas = 0;
         clickedApples = 0;
+
         updateOrderInfo(selectionLabel);
     }
+    
 
-    public static boolean validateOrderWithList(int[] selectedItems) {
-        int[] requiredItems = {requiredBananas, requiredApples};
+    public static boolean validateOrder() {
+        int[] required = {requiredBananas, requiredApples};
+        int[] selected = {clickedBananas, clickedApples};
 
-        for (int i = 0; i < requiredItems.length; i++) {
-            if (selectedItems[i] < requiredItems[i]) {
-                return false;
+        for (int i = 0; i < required.length; i++) {
+            if (selected[i] < required[i]) {
+                return false;  
             }
         }
-        return true;
+        return true; 
     }
 
     private static void generateRandomRequirements() {
-        requiredBananas = (int) (Math.random() * 11);  // 0~10
+        requiredBananas = (int) (Math.random() * 11); 
         requiredApples = (int) (Math.random() * 11);
     }
 }
-
 
 
 

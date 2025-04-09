@@ -19,18 +19,14 @@ public class WarehouseRestockingGame {
         frame.setSize(600, 400);
         frame.setLayout(new FlowLayout());
 
-        frame.getContentPane().setBackground(new Color(173, 216, 230));
+        frame.getContentPane().setBackground(new Color(173, 216, 230));  // Light blue background
+        JLabel orderLabel = new JLabel("Required: " + requiredBananas + " Bananas and " + requiredApples + " Apples");
+        orderLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        frame.add(orderLabel);
 
-        JLabel requirementLabel = new JLabel("Required: " + requiredBananas + " Bananas and " + requiredApples + " Apples");
-        requirementLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        frame.add(requirementLabel);
-
-        JLabel selectionLabel = new JLabel("You have selected: " + clickedBananas + " Bananas and " + clickedApples + " Apples");
-        selectionLabel.setFont(new Font("Arial", Font.PLAIN, 14));
-        frame.add(selectionLabel);
-
-        ImageIcon bananaIcon = new ImageIcon("banana.jpg");
-        ImageIcon appleIcon = new ImageIcon("RedApple.png");
+        
+        ImageIcon bananaIcon = new ImageIcon("banana.jpg"); 
+        ImageIcon appleIcon = new ImageIcon("RedApple.png"); 
 
         JButton bananaButton = new JButton(bananaIcon);
         JButton appleButton = new JButton(appleIcon);
@@ -39,7 +35,7 @@ public class WarehouseRestockingGame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clickedBananas++;
-                updateOrderInfo(selectionLabel);
+                updateOrderInfo(orderLabel);
             }
         });
 
@@ -47,7 +43,7 @@ public class WarehouseRestockingGame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clickedApples++;
-                updateOrderInfo(selectionLabel);
+                updateOrderInfo(orderLabel);
             }
         });
 
@@ -58,7 +54,7 @@ public class WarehouseRestockingGame {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                submitOrder(requirementLabel, selectionLabel);
+                submitOrder(orderLabel);
             }
         });
 
@@ -67,43 +63,30 @@ public class WarehouseRestockingGame {
         frame.setVisible(true);
     }
 
-    private static void updateOrderInfo(JLabel selectionLabel) {
-        selectionLabel.setText("You have selected: " + clickedBananas + " Bananas and " + clickedApples + " Apples");
+    private static void updateOrderInfo(JLabel orderLabel) {
+        orderLabel.setText("You have selected: " + clickedBananas + " Bananas and " + clickedApples + " Apples");
     }
 
-    private static void submitOrder(JLabel requirementLabel, JLabel selectionLabel) {
-        int[] selected = {clickedBananas, clickedApples};  // ✅ 参数列表
-        if (validateOrderWithList(selected)) {
+    private static void submitOrder(JLabel orderLabel) {
+        if (clickedBananas >= requiredBananas && clickedApples >= requiredApples) {
             JOptionPane.showMessageDialog(null, "Order successfully submitted!");
+
             generateRandomRequirements();
-            requirementLabel.setText("Required: " + requiredBananas + " Bananas and " + requiredApples + " Apples");
+            orderLabel.setText("Required: " + requiredBananas + " Bananas and " + requiredApples + " Apples");
+
         } else {
             JOptionPane.showMessageDialog(null, "You have not selected enough items! Try again.");
         }
 
         clickedBananas = 0;
         clickedApples = 0;
-        updateOrderInfo(selectionLabel);
-    }
-
-    public static boolean validateOrderWithList(int[] selectedItems) {
-        int[] requiredItems = {requiredBananas, requiredApples};
-
-        for (int i = 0; i < requiredItems.length; i++) {
-            if (selectedItems[i] < requiredItems[i]) {
-                return false;
-            }
-        }
-        return true;
     }
 
     private static void generateRandomRequirements() {
-        requiredBananas = (int) (Math.random() * 11);  // 0~10
-        requiredApples = (int) (Math.random() * 11);
+        requiredBananas = (int) (Math.random() * 11);  
+        requiredApples = (int) (Math.random() * 11);     
     }
 }
-
-
 
 
 

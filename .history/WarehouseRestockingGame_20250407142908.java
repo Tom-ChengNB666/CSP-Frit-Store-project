@@ -86,6 +86,7 @@ public class WarehouseRestockingGame {
         updateOrderInfo(selectionLabel);
     }
 
+    // ✅ Student-developed procedure with loop + selection + parameter + list
     public static boolean validateOrderWithList(int[] selectedItems) {
         int[] requiredItems = {requiredBananas, requiredApples};
 
