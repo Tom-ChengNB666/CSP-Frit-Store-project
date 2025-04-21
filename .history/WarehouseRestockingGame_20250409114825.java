@@ -72,7 +72,7 @@ public class WarehouseRestockingGame {
     }
 
     private static void submitOrder(JLabel requirementLabel, JLabel selectionLabel) {
-        int[] selected = {clickedBananas, clickedApples}; 
+        int[] selected = {clickedBananas, clickedApples};  // ✅ 
         if (validateOrderWithList(selected)) {
             JOptionPane.showMessageDialog(null, "Order successfully submitted!");
             generateRandomRequirements();
